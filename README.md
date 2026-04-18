@@ -1,6 +1,6 @@
 # FastAPI Task Manager Web Application
 
-**Live Deployment:** []
+**Live Deployment:** [https://task-manager-eight-virid-37.vercel.app/]
 
 A sleek, robust, and full-featured simple Task Manager. 
 
