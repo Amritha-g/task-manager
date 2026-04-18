@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager Pro</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Authentication View -->
+    <div id="auth-view" class="view-container">
+        <div class="auth-card">
+            <div class="logo">Task Pro</div>
+            <h1 id="auth-title">Log IN</h1>
+            
+            <form id="auth-form">
+                <div class="input-group">
+                    <label for="email">Email address</label>
+                    <input type="email" id="email" required autocomplete="username">
+                </div>
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" required autocomplete="current-password">
+                </div>
+                <!-- Error messages -->
+                <div id="auth-error" class="error-text hidden"></div>
+                
+                <button type="submit" id="auth-submit-btn" class="btn-primary">Sign in</button>
+            </form>
+            <div class="auth-switch">
+                <span id="auth-switch-text">Don't have an account?</span>
+                <button id="auth-switch-btn" class="btn-text">Sign up</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Dashboard View -->
+    <div id="dashboard-view" class="view-container hidden">
+        <header class="app-header">
+            <div class="logo">Task Pro</div>
+            <div class="user-controls">
+                <span id="user-email-display"></span>
+                <button id="logout-btn" class="btn-secondary">Log out</button>
+            </div>
+        </header>
+
+        <main class="dashboard-content">
+            <aside class="sidebar">
+                <form id="create-task-form" class="task-form-card">
+                    <h2>Create Task</h2>
+                    <div class="input-group">
+                        <input type="text" id="task-title" placeholder="What needs to be done?" required>
+                    </div>
+                    <div class="input-group">
+                        <textarea id="task-desc" placeholder="Details (optional)" rows="3"></textarea>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="input-group">
+                            <label for="task-priority">Priority</label>
+                            <select id="task-priority">
+                                <option value="high">High</option>
+                                <option value="medium" selected>Medium</option>
+                                <option value="low">Low</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label for="task-due">Due Date</label>
+                            <input type="datetime-local" id="task-due">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn-primary">Add Task</button>
+                </form>
+            </aside>
+
+            <section class="task-list-section">
+                <div class="task-header">
+                    <h2>Your Tasks</h2>
+                    <div class="filters">
+                        <select id="filter-status" class="filter-select">
+                            <option value="all">All Status</option>
+                            <option value="pending">Pending</option>
+                            <option value="completed">Completed</option>
+                        </select>
+                        <select id="filter-priority" class="filter-select">
+                            <option value="all">All Priorities</option>
+                            <option value="high">High</option>
+                            <option value="medium">Medium</option>
+                            <option value="low">Low</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="tasks-container" class="task-grid">
+                    <!-- Tasks will be injected here -->
+                </div>
+
+                <div class="pagination">
+                    <button id="prev-page" class="btn-secondary" disabled>Previous</button>
+                    <span id="page-info">Page 1</span>
+                    <button id="next-page" class="btn-secondary" disabled>Next</button>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Notification Toast -->
+    <div id="toast" class="toast hidden"></div>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>
