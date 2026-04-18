@@ -1,6 +1,6 @@
 # FastAPI Task Manager Web Application
 
-**Live Deployment:** [Replace this with your Vercel URL once deployed]
+**Live Deployment:** []
 
 A sleek, robust, and full-featured simple Task Manager. 
 
